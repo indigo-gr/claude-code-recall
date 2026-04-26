@@ -120,7 +120,7 @@ repos:
     tags: [work]
 ```
 
-## 例2: 特殊コマンド対応（Strapi起動など）
+## 例2: 特殊コマンド対応（CMS dev server起動など）
 
 ```yaml
 version: 1
@@ -130,7 +130,7 @@ repos:
   - name: ClaudeCode
     path: ~/.claude
 
-  - name: Strapi (dev server)
+  - name: CMS (dev server)
     path: ~/sites/blog-cms
     command: "npm run develop"
     icon: "🚀"
@@ -160,7 +160,7 @@ repos:
 
 `repos[].command` > `defaults.command` > `CCS_CMD` 環境変数 > `"claude"`
 
-**設計意図**: per-repo の明示的指定（`command:` フィールド）が常に最優先。`CCS_CMD` env は「全リポジトリ共通のラッパー（例: `opr claude`）を `defaults.command` 未指定時に注入したい」用途のフォールバックとして機能する。Strapi 起動のような特殊コマンドが env で踏み潰されるのを防ぐため、env を最弱に置く。
+**設計意図**: per-repo の明示的指定（`command:` フィールド）が常に最優先。`CCS_CMD` env は「全リポジトリ共通のラッパー（例: `opr claude`）を `defaults.command` 未指定時に注入したい」用途のフォールバックとして機能する。CMS 起動のような特殊コマンドが env で踏み潰されるのを防ぐため、env を最弱に置く。
 
 ccr v0.1.3 の `CCR_CMD` は `CCS_CMD` にリネーム（移行ガイドで明記、CCR_CMD指定時は警告ログ + 暫定honor）。
 
