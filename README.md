@@ -126,14 +126,14 @@ repos:
 
 Known keys: `plane_project_id`, `plane_url`, `attio_workspace`, `notion_db`, `linear_team`, `slack_channel`, `github_repo`, `figma_file`. Unknown keys are rendered verbatim under "Other Integrations". / 未知キーは "Other Integrations" にそのまま表示。
 
-### Special command (Strapi dev server) / 特殊コマンド
+### Special command (CMS dev server) / 特殊コマンド
 
 ```yaml
 version: 1
 defaults:
   command: "claude"
 repos:
-  - name: Strapi CMS
+  - name: CMS
     path: ~/sites/blog-cms
     command: "npm run develop"   # overrides claude entirely
     icon: "🚀"
