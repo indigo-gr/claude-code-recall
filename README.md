@@ -76,15 +76,15 @@ export PATH="$HOME/.claude/scripts:$PATH"
 
 ```
 $ ccs
-ccs> ils                                ┃ ━━━ Repo ━━━
-                                        ┃ 📁 ~/pj/ILS
+ccs> my-project                         ┃ ━━━ Repo ━━━
+                                        ┃ 📁 ~/projects/my-project
   NEW   ClaudeCode                      ┃ 🌿 main (clean)
         Claude Code設定                 ┃ 📨 handoff: 2 files
-> NEW   ILS事業部                       ┃ 📌 pendings: 1
-        ILS本番リポジトリ               ┃ ━━━ Integrations ━━━
-  RESUME ~/pj/ILS  2h ago               ┃ Plane:  ed1ec22d-…
-         Fix the billing webhook…       ┃ Slack:  #ils-dev
-  RESUME ~/pj/ILS  1d ago               ┃ GitHub: indigo-gr/ils
+> NEW   My Project                      ┃ 📌 pendings: 1
+        Main development repository     ┃ ━━━ Integrations ━━━
+  RESUME ~/projects/my-project  2h ago  ┃ Plane:  abc12345-…
+         Fix the billing webhook…       ┃ Slack:  #dev-general
+  RESUME ~/projects/my-project  1d ago  ┃ GitHub: acme-corp/my-project
          Plane work item sync…          ┃
 ```
 
@@ -101,9 +101,9 @@ version: 1
 repos:
   - name: ClaudeCode
     path: ~/.claude
-  - name: ILS
-    path: ~/pj/ILS
-    description: ILS本番リポジトリ
+  - name: my-project
+    path: ~/projects/my-project
+    description: Main development repository
     tags: [work]
 ```
 
@@ -112,15 +112,15 @@ repos:
 ```yaml
 version: 1
 repos:
-  - name: ILS事業部
-    path: ~/pj/ILS
-    description: ILS本番リポジトリ
+  - name: My Project
+    path: ~/projects/my-project
+    description: Main development repository
     tags: [work]
     custom:
-      plane_project_id: "ed1ec22d-xxxx"
-      plane_url: "https://plane.example.com/ils"
-      slack_channel: "#ils-dev"
-      github_repo: "indigo-gr/ils"
+      plane_project_id: "abc12345-xxxx"
+      plane_url: "https://plane.example.com/my-project"
+      slack_channel: "#dev-general"
+      github_repo: "acme-corp/my-project"
       notion_db: "abc123"
 ```
 
@@ -134,7 +134,7 @@ defaults:
   command: "claude"
 repos:
   - name: Strapi CMS
-    path: ~/Website/strapi-cms
+    path: ~/sites/blog-cms
     command: "npm run develop"   # overrides claude entirely
     icon: "🚀"
     scan: false                  # not a Claude repo — skip state scan
@@ -146,14 +146,14 @@ Precedence: `repos[].command` > `defaults.command` > `$CCS_CMD` > `"claude"`.
 ### Preview pane sample / プレビュー表示例
 
 ```
-━━━ Repo: ILS事業部 ━━━
-📁 ~/pj/ILS           🌿 main (2 modified)
-📨 handoff: 2 files   📌 pendings: 1
+━━━ Repo: My Project ━━━
+📁 ~/projects/my-project  🌿 main (2 modified)
+📨 handoff: 2 files       📌 pendings: 1
 
 ━━━ Integrations ━━━
-Plane:    ✅ ed1ec22d-xxxx → https://plane.example.com/ils
-Slack:    ✅ #ils-dev
-GitHub:   ✅ indigo-gr/ils
+Plane:    ✅ abc12345-xxxx → https://plane.example.com/my-project
+Slack:    ✅ #dev-general
+GitHub:   ✅ acme-corp/my-project
 Notion:   ✅ abc123
 ```
 
@@ -209,7 +209,7 @@ ccs --resume
 **3. Resume in current directory / カレントディレクトリで再開**
 
 ```bash
-cd ~/pj/ILS
+cd ~/projects/my-project
 ccs .
 ```
 
